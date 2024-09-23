@@ -1,0 +1,21 @@
+html {
+    background-color: #0D1317;
+}
+
+.library-h1 {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.project-div {
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    width: 240px;
+    background-color: #8EA8C3;
+    border-style: solid;
+    border-left-width: 10px;
+    border-color: #8EA8C3;
+    border-radius: .5rem;
+    border-left-color: #8EA8C3;
+}
