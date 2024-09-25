@@ -18,6 +18,15 @@ dialog.addEventListener('click', (event) => {
   }
 });
 
+document.getElementById('book-list').addEventListener('click', (event) => {
+  // Check if the clicked element is a delete button
+  if (event.target.classList.contains('delete-btn')) {
+      const bookIndex = event.target.getAttribute('data-index');
+      console.log(bookIndex);
+      deleteBook(bookIndex);
+  }
+});
+
 
 
 bookForm.addEventListener('submit', (e) => {
@@ -57,20 +66,21 @@ function displayBooks() {
     // 
     let bookList = document.getElementById('book-list');
     bookList.innerHTML = '';
-    for (let book of myLibrary) {
+    myLibrary.forEach((book, index) => {
         let bookElement = document.createElement('div');
         bookElement.classList.add('project-div');
         bookElement.innerHTML = `
-        <h2>${book.title}</h2>
-        <p>Author: ${book.author}</p>
-        <p>Pages: ${book.pages}</p>
-        <p>Read: ${book.read ? 'Yes' : 'No'}</p>
-        <button class="delete-btn">Delete</button>
+          <h2>${book.title}</h2>
+          <p>Author: ${book.author}</p>
+          <p>Pages: ${book.pages}</p>
+          <p>Read: ${book.read ? 'Yes' : 'No'}</p>
+          <button class="delete-btn" data-index="${index}">Delete</button>
         `;
         console.log(bookElement);
         bookList.appendChild(bookElement);
-    }
+    })
 }
-
-
-displayBooks();
+function deleteBook(index) {
+  myLibrary.splice(index, 1);
+  displayBooks();
+}
