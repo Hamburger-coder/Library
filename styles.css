@@ -6,6 +6,7 @@ html {
     display: flex;
     justify-content: center;
     color: white;
+    font-size: 7vh;
 }
 .project-div {
     display: flex;
@@ -23,71 +24,97 @@ html {
 
 /* Base styling for the delete button */
 .delete-btn {
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    outline: none;
-  }
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+}
   
-  /* Hover effect to increase the size slightly */
-  .delete-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Active state (on click) to make it feel pressed */
-  .delete-btn:active {
-    transform: scale(0.95);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* Adding a hover animation for a subtle wipe effect */
-  .delete-btn::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    transition: transform 0.4s ease;
-    transform: scaleX(0);
-    transform-origin: left;
-    z-index: 0;
-  }
-  
-  .delete-btn:hover::before {
-    transform: scaleX(1);
-  }
-  
-  /* Ensuring text stays above the animation layer */
-  .delete-btn span {
-    position: relative;
-    z-index: 1;
-  }
-  
-  /* Optional: Adding an icon or visual cue */
-  .delete-btn::after {
-    content: "🗑️";
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 18px;
-    transition: transform 0.3s ease;
-    z-index: 2;
-  }
-  
-  /* Move the icon slightly when hovered */
-  .delete-btn:hover::after {
-    transform: translateY(-50%) rotate(20deg);
-  }
-  
+/* Hover effect to increase the size slightly */
+.delete-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Active state (on click) to make it feel pressed */
+.delete-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Adding a hover animation for a subtle wipe effect */
+.delete-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: transform 0.4s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 0;
+}
+
+.delete-btn:hover::before {
+  transform: scaleX(1);
+}
+
+/* Ensuring text stays above the animation layer */
+.delete-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional: Adding an icon or visual cue */
+.delete-btn::after {
+  content: "🗑️";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+/* Move the icon slightly when hovered */
+.delete-btn:hover::after {
+  transform: translateY(-50%) rotate(20deg);
+}
+
+#book-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+#show-dialog {
+  background: linear-gradient(45deg, #8EA8C3, #B0C4DE);
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#show-dialog:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(142, 168, 195, 0.6);
+}
+
+#show-dialog:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(142, 168, 195, 0.4);
+}

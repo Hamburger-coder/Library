@@ -12,6 +12,13 @@ jsCloseBtn.addEventListener("click", (event) => {
     dialog.close();
 });
 
+dialog.addEventListener('click', (event) => {
+  if (event.target === dialog) {
+    dialog.close();
+  }
+});
+
+
 
 bookForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -21,23 +28,14 @@ bookForm.addEventListener('submit', (e) => {
     formData.forEach((value, key) => {
       bookData[key] = value;
     });
+    addBookToLibrary(bookData.title, bookData.author, bookData.pages, bookData.read);
     console.log(bookData);
+    console.log(bookData.title);
 
     dialog.close();
 })  
 
-const myLibrary = [{
-    title: 'The Hobbit',
-    author: 'J.R.R. Tolkien',
-    pages: 320,
-    read: true,
-},
-{
-    title: 'The Lord of the Rings',
-    author: 'Joel Mast',
-    pages: 1200,
-    read: false,
-}];
+const myLibrary = [];
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -49,15 +47,17 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(title, author, pages, read) {
   const newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
+  displayBooks();
 }
 
 function displayBooks() {
     // for (let book of myLibrary) {
     //     console.log(book.author);
     // }
-    // bookList.innerHTML = '';
+    // 
+    let bookList = document.getElementById('book-list');
+    bookList.innerHTML = '';
     for (let book of myLibrary) {
-        let bookList = document.getElementById('book-list');
         let bookElement = document.createElement('div');
         bookElement.classList.add('project-div');
         bookElement.innerHTML = `
