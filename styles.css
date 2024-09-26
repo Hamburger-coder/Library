@@ -107,7 +107,7 @@ html {
   border-radius: 5px;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
-  margin: 10px;
+  margin: 15px;
 }
 
 #show-dialog:hover {
