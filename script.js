@@ -8,6 +8,10 @@ const jsCloseBtn = dialog.querySelector("#js-close");
 const bookForm = document.getElementById("bookForm");
 // Button for changing the read status of a book
 const readBtn = document.querySelector(".read-btn");
+// Arrow function for resetting the form
+const resetForm = () => {
+  bookForm.reset();
+};
 
 // Event listener for showing the dialog
 showBtn.addEventListener("click", () => {
@@ -49,6 +53,7 @@ bookForm.addEventListener('submit', (e) => {
     addBookToLibrary(bookData.title, bookData.author, bookData.pages, bookData.read);
 
     dialog.close();
+    resetForm();
 })  
 
 // Array to store book objects
